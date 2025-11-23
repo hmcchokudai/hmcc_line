@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMcC LIFF App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-view" class="container">
+        <div class="card">
+            <h1>Processing...</h1>
+        </div>
+    </div>
+
+    <div id="form-view" class="container" style="display:none;">
+        <div class="card">
+            <h2>Event Application</h2>
+            <p class="notes">Please see the event poster for details.</p>
+            <hr>
+            <form id="application-form">
+                <div class="form-group">
+                    <label>Photo & Video Consent</label>
+                    <p class="small-text">Photos and videos taken at this event may be uploaded to HMcC's social media. If you have any conditions or requests, please let us know.</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="agreeSns" value="agree" checked><span></span>I agree</label>
+                        <label><input type="radio" name="agreeSns" value="other"><span></span>Other</label>
+                    </div>
+                    <textarea name="agreeSnsDetails" id="agreeSnsDetails" rows="2" placeholder="Please write your conditions here." style="display:none; margin-top: 10px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="past-participation">Have you ever attended an HMcC event before?</label>
+                    <select id="past-participation" name="pastParticipation">
+                        <option value="No, this is my first time">No, this is my first time</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="how-did-you-know">How did you hear about this event?</label>
+                    <select id="how-did-you-know" name="howDidYouKnow" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="HMcC LINE group">HMcC LINE group</option>
+                        <option value="HMcC Instagram">HMcC Instagram</option>
+                        <option value="Mirai Kaitaku Club Discord">Mirai Kaitaku Club Discord</option>
+                        <option value="Poster">Poster</option>
+                        <option value="From a friend">From a friend</option>
+                        <option value="Invitation">Invitation</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="howDidYouKnowOther" id="how-did-you-know-other" placeholder="Please specify" style="display:none; margin-top: 10px;">
+                </div>
+                <div class="form-group">
+                    <label for="reason">Why did you decide to participate?</label>
+                     <select id="reason" name="reason" required>
+                        <option value="" disabled selected>Please select</option>
+                        <option value="To engage in international exchange">To engage in international exchange</option>
+                        <option value="To make new friends and connections">To make new friends and connections</option>
+                        <option value="To interact in a relaxed atmosphere">To interact in a relaxed atmosphere</option>
+                        <option value="To improve my language skills">To improve my language skills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea name="reasonOther" id="reason-other" rows="2" placeholder="Please write your reason here." style="display:none; margin-top: 10px;"></textarea>
+                </div>
+                <hr>
+                <button type="submit" class="submit-button">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="membership-view" class="container" style="display:none;">
+        <div class="card">
+            <h2>Member Registration</h2>
+            <p class="notes">Welcome! Please register your information.</p>
+            <hr>
+            <form id="membership-form">
+                <div class="form-group">
+                    <label for="mem-name">Full Name</label>
+                    <input type="text" id="mem-name" name="name" required placeholder="Type your full name">
+                </div>
+                <div class="form-group">
+                    <label for="mem-nationality">Nationality</label>
+                    <select id="mem-nationality" name="nationality" required>
+                        <option value="" disabled selected>Select Nationality</option>
+                        <option value="Japan">Japan</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="China">China</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="USA">USA</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="nationalityOther" id="mem-nationality-other" placeholder="Please specify" style="display:none; margin-top: 10px;">
+                </div>
+                <div class="form-group">
+                    <label for="mem-university">University</label>
+                    <select id="mem-university" name="university" required>
+                        <option value="" disabled selected>Select University</option>
+                        <option value="Hokkaido University">Hokkaido University</option>
+                        <option value="Hokkai Gakuen University">Hokkai Gakuen University</option>
+                        <option value="Fuji Women's University">Fuji Women's University</option>
+                        <option value="Tenshi College">Tenshi College</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="universityOther" id="mem-university-other" placeholder="Please specify" style="display:none; margin-top: 10px;">
+                </div>
+                <div class="form-group">
+                    <label for="mem-grade">Grade</label>
+                    <select id="mem-grade" name="grade" required>
+                        <option value="" disabled selected>Select Grade</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                        <option value="B3">B3</option>
+                        <option value="B4">B4</option>
+                        <option value="M1">M1</option>
+                        <option value="M2">M2</option>
+                        <option value="D">D</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mem-dietary">Dietary Restrictions / Allergies</label>
+                    <input type="text" id="mem-dietary" name="dietary" required placeholder="Type 'None' if not applicable">
+                </div>
+                <div class="form-group">
+                    <label for="mem-source">How did you hear about us?</label>
+                    <select id="mem-source" name="source" required>
+                        <option value="" disabled selected>Select Option</option>
+                        <option value="HMcC's Instagram">HMcC's Instagram</option>
+                        <option value="Poster">Poster</option>
+                        <option value="The Future Pioneers Club's Discord">The Future Pioneers Club's Discord</option>
+                        <option value="The Future Pioneers Club's Instagram">The Future Pioneers Club's Instagram</option>
+                        <option value="Friend's referral">Friend's referral</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" name="sourceOther" id="mem-source-other" placeholder="Please specify" style="display:none; margin-top: 10px;">
+                </div>
+                <div class="form-group">
+                    <label for="mem-motivation">Why are you interested?</label>
+                    <textarea id="mem-motivation" name="motivation" required placeholder="Your motivation..."></textarea>
+                </div>
+                <hr>
+                <button type="submit" class="submit-button">Register</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="add-point-view" class="container" style="display:none;">
+        <div class="card">
+            <h2>MEMBER CARD</h2>
+            <p>Point added!</p>
+            <p class="small-text">You can now close this window.</p>
+        </div>
+    </div>
+
+    <div id="complete-view" class="container" style="display:none;">
+        <div class="card">
+            <h2 id="complete-title">Complete</h2>
+            <p>Thank you!</p>
+            <p class="small-text">You can now close this window.</p>
+        </div>
+    </div>
+
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // --- フォーム表示切り替えのヘルパー関数 ---
+        function toggleInput(selectId, inputId) {
+            const select = document.getElementById(selectId);
+            const input = document.getElementById(inputId);
+            if (select && input) {
+                select.addEventListener('change', function() {
+                    const isOther = this.value === 'Other' || this.value === 'other';
+                    input.style.display = isOther ? 'block' : 'none';
+                    // Otherの時だけrequired属性をつける（任意）
+                    if (isOther) {
+                        input.setAttribute('required', 'true');
+                    } else {
+                        input.removeAttribute('required');
+                        input.value = ''; // 非表示時はクリア
+                    }
+                });
+            }
+        }
+
+        // イベント申込用
+        toggleInput('how-did-you-know', 'how-did-you-know-other');
+        toggleInput('reason', 'reason-other');
+        // ラジオボタンの制御は少し違うので別途
+        document.querySelectorAll('input[name="agreeSns"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const details = document.getElementById('agreeSnsDetails');
+                details.style.display = (this.value === 'other') ? 'block' : 'none';
+            });
+        });
+
+        // 会員登録用
+        toggleInput('mem-nationality', 'mem-nationality-other');
+        toggleInput('mem-university', 'mem-university-other');
+        toggleInput('mem-source', 'mem-source-other');
+    </script>
+</body>
+</html>
